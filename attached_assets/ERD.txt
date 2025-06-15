@@ -1,0 +1,68 @@
+﻿ERD To Define Core Entities
+Based on your current feature set, we should define these ERD entities:
+________________
+
+
+🔹 User
+ObjectId _id (PK)
+String name
+String email
+String password (hashed)
+String role  // e.g. 'user' | 'admin'
+Date createdAt
+	
+
+________________
+
+
+🔹 Report
+
+
+ObjectId _id (PK)
+ObjectId userId (FK to User)
+String category  // 'theft', 'assault', etc.
+String description
+String location
+String status  // 'pending', 'resolved', etc.
+Date timestamp
+	
+
+________________
+
+
+🔹 Emergency
+
+
+ObjectId _id (PK)
+ObjectId userId (FK to User)
+String type  // e.g. 'fire', 'accident', 'violence'
+String location
+Boolean resolved
+Date createdAt
+	
+
+________________
+
+
+🔹 Feedback
+ObjectId _id (PK)
+ObjectId userId (FK to User)
+String message
+Number rating  // optional
+Date submittedAt
+	
+
+________________
+
+
+🔹 Admin (Optional — could be subset of User)
+You can avoid a separate Admin collection if role is already tracked in User.
+________________
+
+
+🔄 Relationships Summary
+* User._id → referenced in Report.userId, Emergency.userId, Feedback.userId
+
+* One User → Many Reports, Emergencies, Feedback
+
+________________

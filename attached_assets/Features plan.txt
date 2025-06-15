@@ -1,0 +1,33 @@
+﻿our home page for user should have a bottom navbar (mobile first approach).
+planning with 5 icons at bottom 
+["home","report(send)","emergency (live/reachout)","history","profile"] for "user" and
+["home","report(get)","emergency (attend/connect)","history","profile"] for "admin".
+
+
+further explanation                                
+let's not waste much time on planning home,profile, etc., much.
+
+
+report on user side should post a report, most likely a form with crime details like title, description, type of incident, location (can be selected from map inbuilt with form UI), evidence (photo or video, it's keep it simple with photo with preview option), victim details (can be typed or extracted from user details).
+
+
+report on the admin side there should be a list of reports assigned to him (as we are using modular folder structure, we get just hardcode to send every report to 1 admin and scale it later after round 2) with each report showing just title, image, reporter id (name), and review button. he can click on that review button and can either assure victim, reachout back to reporter or either even deny it with a feedback (if it's more like a spam).
+
+
+emergency on user side should have a red buzzer icon which will connect live to nearest admin (as of now just mock message/log connecting to admin... connected to admin: admin data [that hardcoded admin details]). also it fluctuates between red and blue after holding it for 3 seconds (a filling circle animation around emergency icon borders) while showing connecting to nearest admin
+
+
+emergency on admin side should have a blue buzzer icon which can connect live to user in emergency while showing no active emergency.
+which also fluctuates between red and blue with sound when a user calls for emergency help.
+
+
+history on user side will contain all the reports he send, emergency services he requested (title, timestamp, approved status for report. response status, timestamp, helped admin name (id) for emergency service). both gives further data on clicking (that list item).
+
+
+history on admin side will contain all the reports he reviewed, emergency services he attended (title, timestamp, approved status for report. response status, timestamp, helped admin name (id) for emergency service). both gives further data on clicking (that list item).
+
+
+profile on user/admin basic details (editable and non editable), setting option to toggle notification on/off, etc.
+
+
+stretch plan home one both user/admin side will show a image/svg to location range till where it's supported. we are currently scoping for gated communities (to answer how will you make money from it question, answer by selling it as security SaaS).

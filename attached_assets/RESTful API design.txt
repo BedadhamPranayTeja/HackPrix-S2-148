@@ -1,0 +1,108 @@
+﻿RESTful API design for each core feature:
+🚀 Full Backend API Endpoint Plan (Mapped to Frontend Features)
+1. 🧑‍💼 Auth (Login/Register + Role-based Access)
+
+Method
+	Endpoint
+	Description
+	POST
+	/api/v1/auth/register
+	Register user (name, email, password, role=user/admin)
+	POST
+	/api/v1/auth/login
+	Login and receive access token
+	GET
+	/api/v1/auth/me
+	Get logged-in user (requires token)
+	POST
+	/api/v1/auth/logout
+	(Optional: blacklisting token for future)
+	   2. 📄 Report Submission (User)
+
+Method
+	Endpoint
+	Description
+	POST
+	/api/v1/report/
+	Submit a report (title, description, location, optional media)
+	GET
+	/api/v1/report/user
+	Get all reports submitted by current user
+	GET
+	/api/v1/report/:id
+	Get single report detail
+	PATCH
+	/api/v1/report/:id
+	(Optional: Edit user report if not resolved)
+	DELETE
+	/api/v1/report/:id
+	(Optional)
+	      3. 🚨 Emergency Reporting (User + Admin View)
+
+Method
+	Endpoint
+	Description
+	POST
+	/api/v1/emergency/
+	Report emergency (location, level, type)
+	GET
+	/api/v1/emergency/user
+	Get user’s emergency reports
+	GET
+	/api/v1/emergency/admin
+	Admin fetch all active emergencies
+	PATCH
+	/api/v1/emergency/:id
+	Admin can mark as resolved or update
+	         4. 🧾 History Screen (Report + Emergency history for user)
+
+Method
+	Endpoint
+	Description
+	GET
+	/api/v1/history
+	Unified history (reports + emergencies) by user
+	            5. 🎛️ Admin Dashboard – Manage All Reports + Emergencies
+
+Method
+	Endpoint
+	Description
+	GET
+	/api/v1/admin/reports
+	View all reports (paginated)
+	GET
+	/api/v1/admin/emergencies
+	View all emergencies
+	GET
+	/api/v1/admin/users
+	Get user list (optional)
+	               6. 💬 Feedback System
+
+Method
+	Endpoint
+	Description
+	POST
+	/api/v1/feedback/
+	Submit feedback (form)
+	GET
+	/api/v1/feedback/
+	(Admin) View all feedback
+	                  7. 🙍 Profile (User Info)
+
+Method
+	Endpoint
+	Description
+	GET
+	/api/v1/profile/
+	Get logged-in user info
+	PATCH
+	/api/v1/profile/
+	Update profile info (name, password, image)
+	                     8. 📊 Logs (Optional but good for admin monitoring)
+
+Method
+	Endpoint
+	Description
+	GET
+	/api/v1/logs/
+	Admin view actions log (reports created, emergencies, etc.)
